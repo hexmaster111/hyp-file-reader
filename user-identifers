@@ -1,0 +1,8 @@
+;; Thease will be read in when a file contains %TYPE% and %ID% and will be read literly
+;; if you are a hex drone and want that to be said enter HEX DRONE and not the symbles
+
+
+TYPE: "DRONE"
+
+;;Seprate out the numbers/letters for them to be read as five zero five zero if they are compressed together it will be id 
+ID: "5 0 5 0"
