@@ -1,0 +1,11 @@
+#Thease will be read in when a file contains %TYPE% and %ID% and will be read literly
+#if you are a hex drone and want that to be said enter HEX DRONE and not the symbles
+
+
+TYPE="drone"
+
+
+#Seprate out the numbers/letters for them to be read as five zero five zero if they are compressed together it will be id 
+#Typing this out as the phenetic spelling of how YOU want your id pronouced put that in for id
+
+ID="5 0 5 0"

@@ -12,9 +12,13 @@ testing user id.
 
 %ID%
 
+testing user %ID% in a line
+
 testing user type.
 
 %TYPE%
+
+Testing %TYPE% in a line
 
 test without slash.
 
