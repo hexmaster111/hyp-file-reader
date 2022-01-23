@@ -1,18 +1,6 @@
 #!/bin/bash
 source ./config.hycfg #read in id and type
 
-#where our temp file goes
-TEMP_FILE="/tmp/hypno.tmp"
-
-SOF="[START-OF-FILE]"
-EOF="[END-OF-FILE]"
-
-
-
-#just for testing
-echo "$TYPE"
-echo "$ID"
-
 echo "Reading file $1"
 
 #copy our file into a good place to work with
@@ -35,11 +23,9 @@ process_line() {
     fi
 
     if [[ "$line" == *"%ID%"* ]]; then
-	    echo "I FOUND AN ID!!"
 	    echo $line | sed "s|%ID%|$ID|g" >> $TEMP_FILE
    
     elif [[ "$line" == *"%TYPE%"* ]]; then
-	    echo "FOUND A TYPE"
 	    echo $line | sed "s|%TYPE%|$TYPE|g" >> $TEMP_FILE
     else
 	    echo "$line" >> $TEMP_FILE
@@ -47,6 +33,8 @@ process_line() {
 }
 
 READING=false
+
+echo "parcing file"
 
 while read -r l; do
     if [[ $l == '[START-OF-FILE]' ]]; then
@@ -58,5 +46,6 @@ while read -r l; do
     fi
 done <<< $(cat $1)
 
-echo "RUN SOMETHING COOL"
-#do tts or something ... figure this out
+echo "running tts"
+
+./tts.sh $TEMP_FILE
