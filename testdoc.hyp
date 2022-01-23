@@ -1,0 +1,23 @@
+Title
+
+Auther
+
+[START-OF-FILE]
+
+%TYPE% %ID% things
+
+%TYPE% %ID% other things
+
+This is a test of a long file with %ID%. There was some failing lines for some reasion, im not sure yet about that.
+
+test 1 2 3 4 5 12345.
+testing user I D.
+testing user %ID% in a line
+testing user type.
+Testing %TYPE% in a line
+test without slash.
+this, is, a, comma, timeing, test,
+This. is. a. pereid. test.
+[END-OF-FILE]
+
+notes can go here as well

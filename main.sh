@@ -17,20 +17,23 @@ is_comment() {
 
 process_line() {
     local line="$1"
+    local LINE_IN=0
 
     if is_comment "$line"; then
         return
     fi
 
-    if [[ "$line" == *"%ID%"* ]]; then
-	    echo $line | sed "s|%ID%|$ID|g" >> $TEMP_FILE
-   
-    elif [[ "$line" == *"%TYPE%"* ]]; then
-	    echo $line | sed "s|%TYPE%|$TYPE|g" >> $TEMP_FILE
+    if [[ "$line" == *"%ID%"* ]] || [[ "$line" == *"%TYPE%"* ]]; then
+	    echo $line | sed "s|%ID%|$ID|g; s|%TYPE%|$TYPE|g" >> $TEMP_FILE
+
+    #if [[ "$line" == *"%TYPE%"* ]]; then
+	#    echo $line | sed "s|%TYPE%|$TYPE|g" >> $TEMP_FILE
+    #fi
     else
+
 	    echo "$line" >> $TEMP_FILE
-    fi
-}
+	fi
+    }
 
 READING=false
 
@@ -45,7 +48,5 @@ while read -r l; do
         process_line "$l"
     fi
 done <<< $(cat $1)
-
-echo "running tts"
 
 ./tts.sh $TEMP_FILE
