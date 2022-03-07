@@ -4,7 +4,7 @@
 
 ## usage
 
-> ./read.sh "filename.hyp"
+> ./main.sh "filename.hyp"
 
 
 ## dependencies 
